@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+    - node_modules
+dist: trusty
+addons:
+  chrome: stable
+before_script:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+
+script:
+  - yarn run test
+
+after_script:
+  - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+
+notifications:
+  email: false

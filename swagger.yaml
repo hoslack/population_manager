@@ -1,0 +1,183 @@
+swagger: '2.0'
+info:
+  title: location-manager
+  description: This is a location management api
+  version: '1.1'
+produces:
+  - application/json
+host: localhost:3000
+schemes:
+  - https
+basePath: /api
+tags:
+  - name: Auth
+    description: Authentication
+  - name: Locations
+    description: Location Management
+paths:
+  /login:
+    post:
+      description: Login with registered number and password to obtain a token
+      tags:
+        - Auth
+      parameters:
+        - in: body
+          name: login
+          required: true
+          schema:
+            type: object
+            required:
+              - phoneNumber
+              - password
+            properties:
+              phoneNumber:
+                type: string
+              password:
+                type: string
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Error Occurred
+  /sign_up:
+    post:
+      description: Register
+      tags:
+        - Auth
+      parameters:
+        - in: body
+          name: Sign up
+          schema:
+            type: object
+            required:
+              - username
+              - phoneNumber
+              - password
+            properties:
+              phoneNumber:
+                type: string
+              password:
+                type: string
+              username:
+                type: string
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Error Occured
+  /location:
+    get:
+      tags:
+        - Locations
+      description: Get all locations
+      parameters:
+        - in: header
+          name: authorization
+          type: string
+      responses:
+        '200':
+          description: Okay
+        '404':
+          description: Not Found
+        '401':
+          description: Unauthorized
+    post:
+      description: Create a location
+      tags:
+        - Locations
+      parameters:
+        - in: body
+          name: Create Location
+          schema:
+            type: object
+            required:
+              - locationName
+              - female
+              - male
+            properties:
+              locationName:
+                type: string
+              male:
+                type: integer
+              female:
+                type: integer
+        - in: header
+          name: authorization
+          type: string
+      responses:
+        '201':
+          description: Created
+        '422':
+          description: Errors
+  '/location/{id}':
+    get:
+      tags:
+        - Locations
+      description: Get a single location
+      parameters:
+        - in: header
+          name: authorization
+          type: string
+        - name: id
+          in: path
+          description: id of the location to retrieve
+          required: true
+          type: string
+      responses:
+        '401':
+          description: unauthorized
+        '200':
+          description: Okay
+    put:
+      tags:
+        - Locations
+      description: Update a single location
+      parameters:
+        - in: header
+          name: authorization
+          type: string
+        - name: id
+          in: path
+          description: id of the location to edit
+          required: true
+          type: string
+        - in: body
+          name: Update location
+          schema:
+            type: object
+            required:
+              - locationName
+              - male
+              - female
+            properties:
+              locationName:
+                type: string
+              male:
+                type: integer
+              female:
+                type: integer
+      responses:
+        '401':
+          description: unauthorized
+        '200':
+          description: OK
+    delete:
+      tags:
+        - Locations
+      description: Delete a single location
+      parameters:
+        - in: header
+          name: authorization
+          type: string
+        - name: id
+          in: path
+          description: id of the location to delete
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Successfully deleted
+        '401':
+          description: unauthorized
+        '404':
+          description: Not found
