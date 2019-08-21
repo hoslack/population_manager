@@ -1,0 +1,21 @@
+{
+  "name": "population_manager",
+  "version": "1.0.0",
+  "description": "Popolation management system",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "None"
+  },
+  "keywords": [
+    "Node"
+  ],
+  "author": "hoslack",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
