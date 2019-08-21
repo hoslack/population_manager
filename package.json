@@ -26,11 +26,11 @@
     "mocha": "^6.2.0",
     "mongoose": "^5.6.10",
     "swagger-ui-express": "^4.0.7",
-    "yamljs": "^0.3.0"
+    "yamljs": "^0.3.0",
+    "bcrypt": "^3.0.6",
+    "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
-    "bcrypt": "^3.0.6",
-    "jsonwebtoken": "^8.5.1",
     "nodemon": "^1.19.1"
   }
 }
