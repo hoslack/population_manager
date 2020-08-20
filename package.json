@@ -27,7 +27,7 @@
     "mongoose": "^5.6.10",
     "swagger-ui-express": "^4.0.7",
     "yamljs": "^0.3.0",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
