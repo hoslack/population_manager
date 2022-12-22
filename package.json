@@ -28,7 +28,7 @@
     "swagger-ui-express": "^4.0.7",
     "yamljs": "^0.3.0",
     "bcrypt": "^3.0.6",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^9.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
